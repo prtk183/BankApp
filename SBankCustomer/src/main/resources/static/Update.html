@@ -1,0 +1,57 @@
+
+<html>
+<head></head>
+<link rel="stylesheet" href="mycss.css">
+<body>
+<div id ="head">
+		
+		Student Pojo
+		
+	</div>
+	<div id ="menu">
+	 <ul>
+ <li> <a href="http://localhost:8089/CreateCustomer.html">Create Account</a></li>
+	 <li> <a href="http://localhost:8089/Withdraw.html">Withdraw Money</a></li>
+	 <li> <a href="http://localhost:8089/Deposit.html">Deposit Money</a></li>
+	 <li> <a href="http://localhost:8089/UpdateDetails.html">Update Account Details</a> </li>
+	 <li> <a href="http://localhost:8089/TransactionReport.html">See transaction Report</a></li>
+	 </ul>
+	</div>
+	<div id="mydisplay">
+	<form action="http://localhost:8089/update" method="POST" >
+	<table style="margin-top:20px; margin-left:20px;">
+	<tbody>
+	<tr>
+		<td>Customer Name:</td>
+		<td><input type="text" name="customerName"></td>
+	</tr>
+		
+	<tr>
+		<td> Customer Id:</td>
+		<td><input type="number" name="customerId"></td>
+	</tr>
+		
+	<tr>
+		<td>Bank Id:</td>
+		<td><input type="number" name="bankId"></td>
+	</tr>
+	<tr>
+		<td>Customer to be updated Name:</td>
+		<td><input type="text" name="newName"></td>	
+	</tr>
+
+	<tr></tr>
+	</tbody>
+	</table>
+	
+<input type="submit" value="submit" style="margin-left:80px;" >
+</form>
+	     
+	
+	</div>
+	<div id ="footer">
+	    visit again
+	</div>
+
+</body>
+</html>

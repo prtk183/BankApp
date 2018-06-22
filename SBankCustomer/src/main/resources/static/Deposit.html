@@ -1,0 +1,63 @@
+
+<html>
+<head></head>
+<link rel="stylesheet" href="mycss.css">
+<body>
+<div id ="head">
+		
+		Deposit
+		
+	</div>
+	<div id ="menu">
+	 <ul>
+ <li> <a href="http://localhost:8089/CreateCustomer.html">Create Account</a></li>
+	 <li> <a href="http://localhost:8089/Withdraw.html">Withdraw Money</a></li>
+	 <li> <a href="http://localhost:8089/Deposit.html">Deposit Money</a></li>
+	 <li> <a href="http://localhost:8089/Update.html">Update Account Details</a> </li>
+	 <li> <a href="http://localhost:8089/TransactionReport.html">See transaction Report</a></li>
+	 </ul>
+	</div>
+	<div id="mydisplay">
+	<form action="http://localhost:8089/DepositMoney" method="POST" >
+	<table style="margin-top:20px; margin-left:20px;">
+	<tbody>
+	<tr>
+		<td>Customer Name:</td>
+		<td><input type="text" name="customer_Name"></td>
+	</tr>
+		
+	<tr>
+		<td>CustomerId:</td>
+		<td><input type="number" name="customerId"></td>
+	</tr>
+	<tr>
+		<td>Account Id:</td>
+		<td><input type="number" name="accountId"></td>	
+	</tr>	
+	<tr>
+		<td>Bank Name:</td>
+		<td><input type="number" name="bank_name"></td>	
+	</tr>
+	<tr>
+		<td>Bank Id:</td>
+		<td><input type="number" name="bankid"></td>	
+	</tr>
+	<tr>
+		<td>Deposit Amount:</td>
+		<td><input type="number" name="amount"></td>	
+	</tr>
+	<tr></tr>
+	</tbody>
+	</table>
+	
+<input type="submit" value="submit" style="margin-left:80px;" >
+</form>
+	     
+	
+	</div>
+	<div id ="footer">
+	    visit again
+	</div>
+
+</body>
+</html>
