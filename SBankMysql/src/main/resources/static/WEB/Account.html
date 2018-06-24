@@ -1,0 +1,51 @@
+<html>
+<head>
+<head>
+  <title>AngularJs PUT Form Nested Object to SpringBoot Example</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="js/landAccount.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+</head>
+<link rel="stylesheet" href="css/mycss.css">
+<body>
+<div id ="head">
+				Account Page
+</div>
+<div id ="menu">
+	 <ul>
+	 <li> <a href="http://localhost:8080/Admin.html">Admin</a></li>
+	 <li> <a href="http://localhost:8080/Bank.html">Bank</a></li>
+	 <li> <a href="http://localhost:8080/Account.html">Account</a></li>
+	 <li> <a href="http://localhost:8080/Atm.html">ATM</a> </li>
+	 </ul>	
+</div>
+<div id="mydisplay">
+<div class="container" ng-app="app" ng-controller="landAccount">
+	<h3>Acounts List:</h3>
+    	<table class="table table-bordered table-hover">
+    		<tr>
+    			<th>SrNo</th>
+    			<th>AcountId</th>
+    			<th>CustomerId</th>
+   				<th>amount</th>
+   				<th>BankId</th>
+ 			</tr>
+  			<tr ng-repeat="account in listAccount" ng-class-even="'info'" ng-class-odd="'success'">
+  				<td>{{ $index + 1 }}</td>
+    			<td>{{ account.accountId }}</td>
+    			<td>{{ account.customer.customerId }}</td>
+    			<td>{{ account.amount }}</td>
+    			<td>{{ account.bank.bankId }}</td>
+  			</tr>
+		</table>
+	</div>
+</div>
+<div id ="footer">
+	    visit again
+</div>
+
+</body>
+</html>

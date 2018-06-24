@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.ws.rs.QueryParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -59,11 +61,11 @@ public class BankController {
 	 * @throws HandleException
 	 */
 	@PostMapping("/createbank")
-	public ResponseEntity<?> callCreateBank( @RequestBody  WrapperCreateBank object) throws HandleException
+	public ResponseEntity<?> callCreateBank( @QueryParam("amount") Integer amount) throws HandleException
 	{
 	  log.info("calling createBank");
-		System.out.println(object.getAmount());
-		Bank bank= new Bank(object.getAmount());
+		//System.out.println(object.getAmount());
+	  WrapperCreateBank object= new WrapperCreateBank(amount);
 		Bank bank1 =  bankServiceImpl.createBank(object);
 		if(bank1!=null)
 		{return new ResponseEntity<Bank>(bank1, HttpStatus.OK);}

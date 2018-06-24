@@ -12,6 +12,13 @@ public class WrapperATMAddMoneyToATM {
   /**--------*/
   private Long atmID;
   
+  
+  public WrapperATMAddMoneyToATM(BigDecimal amount, Long bankId, Long atmID) {
+    super();
+    this.amount = amount;
+    this.bankId = bankId;
+    this.atmID = atmID;
+  }
   public BigDecimal getAmount() {
     return amount;
   }

@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>AngularJs PUT Form Nested Object to SpringBoot Example</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="js/landBank.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<link rel="stylesheet" href="css/mycss.css">
+<body>
+<div id ="head">
+				Bank Page
+</div>
+<div id ="menu">
+	 <ul>
+	 <li> <a href="http://localhost:8080/WEB/createBank.html">Add Bank</a></li>
+	 
+	 <li> <a href="http://localhost:8080/WEB/viewBanks.html">Account</a></li>
+	 </ul>	
+</div>
+<div id="mydisplay">
+<div class="container" ng-app="app" ng-controller="landBank">
+	<h3>Transaction List:</h3>
+    	<table class="table table-bordered table-hover">
+    		<tr>
+    			<th>SrNo</th>
+    			<th>bankId</th>
+   				<th>amount</th>
+ 			</tr>
+  			<tr ng-repeat="bank in listBanks" ng-class-even="'info'" ng-class-odd="'success'">
+  				<td>{{ $index + 1 }}</td>
+    			<td>{{ bank.bankId }}</td>
+    			<td>{{ bank.amount }}</td>
+    			
+  			</tr>
+		</table>
+	</div>
+</div>
+<div id ="footer">
+	    visit again
+</div>
+
+</body>
+</html>

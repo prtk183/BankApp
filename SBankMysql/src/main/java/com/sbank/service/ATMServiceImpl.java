@@ -263,4 +263,11 @@ public class ATMServiceImpl implements ATMService {
     }
   }
 
+  @Override
+  public List<ATM> getAtms() throws HandleException {
+    
+    List<ATM> list = atmrepository.findAll();
+    return list;
+  }
+
 }

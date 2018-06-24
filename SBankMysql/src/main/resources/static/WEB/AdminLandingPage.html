@@ -1,0 +1,35 @@
+<html>
+<head></head>
+<link rel="stylesheet" href="css/mycss.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("customers.php")
+    .then(function (response) {$scope.names = response.data.records;});
+});
+</script>
+<body>
+<div id ="head">
+				Welcome Admin
+</div>
+<div id ="menu">
+	 <ul>
+	 <li> <a href="http://localhost:8080/WEB/Admin.html">Admin</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Bank.html">Bank</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Account.html">Account</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Atm.html">ATM</a> </li>
+	 <li> <a href="http://localhost:8080/WEB/TransactionReport.html">See transaction Report</a></li>
+	 </ul>	
+</div>
+<div id="mydisplay">
+	<div ng-app="myApp" ng-controller="customersCtrl">
+		<p>dashboard</p>
+	</div>
+</div>
+<div id ="footer">
+	    visit again
+</div>
+
+</body>
+</html>

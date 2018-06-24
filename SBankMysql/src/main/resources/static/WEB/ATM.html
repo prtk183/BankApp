@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>AngularJs PUT Form Nested Object to SpringBoot Example</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="js/landAtm.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	  <link rel="stylesheet" href="css/mycss.css">
+</head>
+<body>
+<div id ="head">
+				Welcome Admin
+</div>
+<div id ="menu">
+	 <ul>
+	 <li> <a href="http://localhost:8080/WEB/createAtm.html">create Atm</a></li>
+	 <li> <a href="http://localhost:8080/WEB/addMoney.html">Add money</a></li>
+	 </ul>	
+</div>s
+<div id="mydisplay">
+<div class="container" ng-app="app" ng-controller="landAtm">
+<h3>Acounts List:</h3>
+    	<table class="table table-bordered table-hover">
+    		<tr>
+    			<th>SrNo</th>
+    			<th>AtmId</th>
+   				<th>amount</th>
+   				<th>BankId</th>
+ 			</tr>
+  			<tr ng-repeat="atm in listAtm" ng-class-even="'info'" ng-class-odd="'success'">
+  				<td>{{ $index + 1 }}</td>
+    			<td>{{ atm.atmId }}</td>
+    			<td>{{ atm.amount }}</td>
+    			<td>{{ atm.bank.bankId }}</td>
+  			</tr>
+		</table>
+	</div>
+</div>
+<div id ="footer">
+	    visit again
+</div>
+
+</body>
+</html>

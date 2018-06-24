@@ -1,0 +1,36 @@
+
+
+#base{
+		color:wheat;
+		background-color:#100b03;
+	}
+
+#float{
+		margin: 100px 0 0 500; 
+		background-color:#100b03; 
+		padding: 10 10 10 10;
+	}
+
+#table{
+		background-color:#100b03; 
+		padding: 10 10 10 10;
+		height:300px; width:333px;  
+		border-color: gray;
+		border-style: solid;
+	}
+	
+#textfield{
+		margin-bottom: 15px; 
+		width: 300px; 
+		height: 30px;
+	}
+
+#button{
+		color: blue;   
+		margin-top: 15px;  
+		    margin-bottom: 10px;
+		width: 300px;
+		height: 30px;
+		background-color: cyan;
+		
+	}

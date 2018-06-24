@@ -1,5 +1,7 @@
 package com.sbank.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.sbank.exception.HandleException;
@@ -11,6 +13,12 @@ import com.sbank.wrappers.WrapperATMWithdraw;
 public interface ATMService {
 
   /**/
+  /***/
+  /**
+   * @return
+   * @throws HandleException
+   */
+  public List<ATM> getAtms() throws HandleException;
   /**
    * @param object
    * @return

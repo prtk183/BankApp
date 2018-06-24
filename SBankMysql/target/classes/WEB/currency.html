@@ -1,0 +1,76 @@
+
+
+
+<html>
+<head>
+	  <title>AngularJs PUT Form Nested Object to SpringBoot Example</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="table.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	  <link rel="stylesheet" href="css/mycss.css">
+</head>
+
+<body>
+<div id ="head">
+		
+		Transaction Report
+		
+</div>
+<div id ="menu">
+	 <ul>
+	 <li> <a href="http://localhost:8080/WEB/Admin.html">Admin</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Bank.html">Bank</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Account.html">Account</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Atm.html">ATM</a> </li>
+	 <li> <a href="http://localhost:8080/WEB/TransactionReport.html">See transaction Report</a></li>
+	 </ul>
+</div>
+<div id="mydisplay">
+
+	<table>
+		<tr>
+		<td>Add Curency</td>
+		<td><input type="text" name="currency"></td> 
+		</tr>
+		<tr><td><input type="submit" name="Add Currency"></td></tr>
+	</table>
+	<table>
+		<tr>
+		<td>Remove Curency</td>
+		<td><input type="text" name="currency"></td> 
+		</tr>
+		<tr><td><input type="submit" name="Remove Currency"></td></tr>
+	</table>
+	<div class="container" ng-app="app" ng-controller="jsaController">
+	<h3>Transaction List:</h3>
+    	<table class="table table-bordered table-hover">
+    		<tr>
+    			<th>SrNo</th>
+    			<th>transactionId</th>
+   				<th>customerId</th>
+   				<th>accountId</th>
+   				<th>amount</th>
+   				<th>transactionType</th>
+ 			</tr>
+  			<tr ng-repeat="trans in listTransaction" ng-class-even="'info'" ng-class-odd="'success'">
+  				<td>{{ $index + 1 }}</td>
+    			<td>{{ trans._id }}</td>
+    			<td>{{ trans.customerId }}</td>
+    			<td>{{ trans.accountId }}</td>
+    			<td>{{ trans.amount }}</td>
+    			<td>{{ trans.transactionType }}</td>
+  			</tr>
+		</table>
+
+
+	</div>     
+	
+</div>
+<div id ="footer">
+	    visit again
+</div>
+
+</body>
+</html>

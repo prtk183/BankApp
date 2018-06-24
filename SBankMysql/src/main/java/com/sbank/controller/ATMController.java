@@ -1,13 +1,17 @@
 package com.sbank.controller;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.logging.Logger;
+
+import javax.ws.rs.QueryParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,11 +48,12 @@ public class ATMController {
    * @throws HandleException
    */
   @PostMapping("/createatm")
-  public ResponseEntity<?> callcreateATM(@RequestBody WrapperATMCreate object) throws HandleException
+  public ResponseEntity<?> callcreateATM(@QueryParam("bankid") Long bankId, @QueryParam("amount") Integer amount) throws HandleException
   {
     ATM atm = new ATM();
     log.info("in controller creating atm");
  
+    WrapperATMCreate object = new WrapperATMCreate(new BigDecimal(amount), bankId );
     atm = ATMServiceImpl.createATM(object);
     if(atm!=null)
     {return new ResponseEntity<ATM>(atm,HttpStatus.OK);}
@@ -62,10 +67,11 @@ public class ATMController {
    * @throws HandleException
    */
   @PostMapping("/addmoneyfrombank")
-  public ResponseEntity<?> calladdMoneyFromBank(@RequestBody WrapperATMAddMoneyToATM object) throws HandleException
+  public ResponseEntity<?> calladdMoneyFromBank(@QueryParam("atmId") Long atmId, @QueryParam("bankId") Long bankId, @QueryParam("amount") Integer amount) throws HandleException
   {
     ATM atm = new ATM();
     log.info("in controller calladdMoneyFromBank");
+    WrapperATMAddMoneyToATM object =  new WrapperATMAddMoneyToATM(new BigDecimal(amount), atmId, bankId);
     atm = ATMServiceImpl.addMoneyFromBank(object);
  
     if(atm!=null)
@@ -88,6 +94,19 @@ public class ATMController {
     atm = ATMServiceImpl.withdrawMoney(object);
     if(atm!=null)
     {return new ResponseEntity<ATM>(atm,HttpStatus.OK);}
+    else
+    {return new ResponseEntity<String>(environment.getProperty("999"),HttpStatus.BAD_REQUEST);}
+  }
+  
+  @GetMapping("/getAtms")
+  public ResponseEntity<?> callgetAtm() throws HandleException
+  {
+   
+    log.info("in controller callwithdrawMoney");
+    List<ATM> listAtm = ATMServiceImpl.getAtms();
+    
+    if(listAtm!=null)
+    {return new ResponseEntity<List<ATM>>(listAtm,HttpStatus.OK);}
     else
     {return new ResponseEntity<String>(environment.getProperty("999"),HttpStatus.BAD_REQUEST);}
   }

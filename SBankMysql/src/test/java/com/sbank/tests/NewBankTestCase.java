@@ -1,4 +1,4 @@
-package com.sbank.tests;
+/*package com.sbank.tests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -90,3 +90,4 @@ public class NewBankTestCase {
      return new WrapperDenomination(denominationTable,permission );
   }
 }
+*/
