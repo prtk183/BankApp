@@ -7,7 +7,7 @@
 	  <meta charset="utf-8" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1" />
 	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	  <script src="table.js"></script>
+	  <script src="js/landCurrency.js"></script>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	  <link rel="stylesheet" href="css/mycss.css">
 </head>
@@ -24,43 +24,36 @@
 	 <li> <a href="http://localhost:8080/WEB/Bank.html">Bank</a></li>
 	 <li> <a href="http://localhost:8080/WEB/Account.html">Account</a></li>
 	 <li> <a href="http://localhost:8080/WEB/Atm.html">ATM</a> </li>
-	 <li> <a href="http://localhost:8080/WEB/TransactionReport.html">See transaction Report</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Currency.html">Currency</a></li>
 	 </ul>
 </div>
 <div id="mydisplay">
-
+<form>
 	<table>
 		<tr>
 		<td>Add Curency</td>
 		<td><input type="text" name="currency"></td> 
-		</tr>
-		<tr><td><input type="submit" name="Add Currency"></td></tr>
+		<td><input type="submit" name="Add Currency"></td></tr>
 	</table>
+</form>
+<form>
 	<table>
 		<tr>
 		<td>Remove Curency</td>
 		<td><input type="text" name="currency"></td> 
-		</tr>
-		<tr><td><input type="submit" name="Remove Currency"></td></tr>
+		<td><input type="submit" name="Remove Currency"></td></tr>
 	</table>
-	<div class="container" ng-app="app" ng-controller="jsaController">
+</form>
+	<div class="container" ng-app="app" ng-controller="landCurrency">
 	<h3>Transaction List:</h3>
     	<table class="table table-bordered table-hover">
     		<tr>
     			<th>SrNo</th>
-    			<th>transactionId</th>
-   				<th>customerId</th>
-   				<th>accountId</th>
-   				<th>amount</th>
-   				<th>transactionType</th>
+    			<th>Currency</th>
  			</tr>
-  			<tr ng-repeat="trans in listTransaction" ng-class-even="'info'" ng-class-odd="'success'">
+  			<tr ng-repeat="curr in listCurrency" ng-class-even="'info'" ng-class-odd="'success'">
   				<td>{{ $index + 1 }}</td>
-    			<td>{{ trans._id }}</td>
-    			<td>{{ trans.customerId }}</td>
-    			<td>{{ trans.accountId }}</td>
-    			<td>{{ trans.amount }}</td>
-    			<td>{{ trans.transactionType }}</td>
+    			<td>{{ curr.currency }}</td>
   			</tr>
 		</table>
 

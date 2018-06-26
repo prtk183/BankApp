@@ -1,0 +1,39 @@
+<html>
+<head></head>
+<link rel="stylesheet" href="css/mycss.css">
+<body>
+<div id ="head">
+				Welcome Admin
+</div>
+<div id ="menu">
+	 <ul>
+	 <li> <a href="http://localhost:8080/WEB/addAdmin.html"> Add Admin</a></li>
+	 <li> <a href="http://localhost:8080/WEB/removeAdmin.html">Remove Admin</a></li>
+	 <li> <a href="http://localhost:8080/WEB/Currency.html">Currency</a></li>	 
+	 </ul>	
+</div>
+<div id="mydisplay">
+	<form action="/addAdmin" method="POST">
+		<table>
+			<tr>
+			<td>AdminId</td>
+			<td><input type="number" name="id"></td>
+			</tr>
+			<tr>
+			<td>Password</td>
+			<td><input type="text" name="password"></td>
+			</tr>
+			<tr>
+			<td>Role</td>
+			<td><input type="text" name="role"></td>
+			</tr>
+			<tr><td><input type="submit" name="submit"></td></tr>
+		</table>
+	</form>
+</div>
+<div id ="footer">
+	    visit again
+</div>
+
+</body>
+</html>

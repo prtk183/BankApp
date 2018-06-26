@@ -1,28 +1,40 @@
 <html>
-<head></head>
+<head>
+  <title>AngularJs PUT Form Nested Object to SpringBoot Example</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="js/landAdmin.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
 <link rel="stylesheet" href="css/mycss.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-    $http.get("customers.php")
-    .then(function (response) {$scope.names = response.data.records;});
-});
-</script>
 <body>
 <div id ="head">
 				Welcome Admin
 </div>
 <div id ="menu">
 	 <ul>
-	 <li> <a href="http://localhost:8080/WEB/AddAdmin.html"> Add Admin</a></li>
-	 <li> <a href="http://localhost:8080/WEB/RemoveAdmin.html">Remove Admin</a></li>
-	 <li> <a href="http://localhost:8080/WEB/Currency.html">Currency</a></li>	 
+	 <li> <a href="http://localhost:8080/WEB/addAdmin.html"> Add Admin</a></li>
+	 <li> <a href="http://localhost:8080/WEB/removeAdmin.html">Remove Admin</a></li>
 	 </ul>	
 </div>
 <div id="mydisplay">
-	<div ng-app="myApp" ng-controller="customersCtrl">
-		<p>dashboard</p>
+<div class="container" ng-app="app" ng-controller="landAdmin">
+	<h3>Acounts List:</h3>
+    	<table class="table table-bordered table-hover">
+    		<tr>
+    			<th>SrNo</th>
+    			<th>AdminId</th>
+    			<th>Password</th>
+   				<th>Role</th>
+ 			</tr>
+  			<tr ng-repeat="admin in listAdmin" ng-class-even="'info'" ng-class-odd="'success'">
+  				<td>{{ $index + 1 }}</td>
+    			<td>{{ admin.id }}</td>
+    			<td>{{ admin.password }}</td>
+    			<td>{{ admin.role }}</td>
+  			</tr>
+		</table>
 	</div>
 </div>
 <div id ="footer">
