@@ -10,11 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.sbank.model.Admin;
+import com.sbank.model.MyAdmin;
 import com.sbank.service.AdminServiceImpl;
 
-@Controller
+@RestController
 public class AdminController {
   
   @Autowired
@@ -25,9 +26,9 @@ public class AdminController {
   public ResponseEntity<?> callGetAdmin()
   {
   
-   List<Admin> result = adminServiceImpl.getAdmins();
+   List<MyAdmin> result = adminServiceImpl.getAdmins();
    if(result!=null)
-     return new ResponseEntity<List<Admin>>(result,HttpStatus.OK);
+     return new ResponseEntity<List<MyAdmin>>(result,HttpStatus.OK);
    else
      return new ResponseEntity<String>("No Admins",HttpStatus.FAILED_DEPENDENCY);
   }
@@ -36,7 +37,7 @@ public class AdminController {
   @PostMapping("/addAdmin")
   public ResponseEntity<String> callAddAdmin(@QueryParam("id") Long id,@QueryParam("role") String role, @QueryParam("password") String password)
   {
-   Admin object = new Admin(id, password, role); 
+    MyAdmin object = new MyAdmin(id, password, role); 
    Object result = adminServiceImpl.addAdmin(object);
    if(result!=null)
      return new ResponseEntity<String>("Admin created",HttpStatus.OK);

@@ -13,7 +13,7 @@ app.controller('jsaController', function($scope, $http, $location) {
 	function getAllTransaction(){
 		// get URL
 		//var url = $location.absUrl() + "/generatetransactionreport/1/1";
-		var url = "http://localhost:8089/generatetransactionreport/1/1";
+		var url = "http://localhost:8080/getTransactions";
 		// do getting
 		$http.get(url).then(function (response) {
 			$scope.getDivAvailable = true;

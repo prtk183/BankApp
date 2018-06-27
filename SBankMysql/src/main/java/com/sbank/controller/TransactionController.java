@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.sbank.exception.HandleException;
 import com.sbank.model.Account;
@@ -21,7 +22,7 @@ import com.sbank.service.TransactionServiceImpl;
 import com.sbank.wrappers.CreateAccountWrapper;
 import com.sbank.wrappers.WrapperTransaction;
 
-@Controller
+@RestController
 public class TransactionController {
   
   @Autowired
@@ -61,6 +62,23 @@ public class TransactionController {
        {return new ResponseEntity<List<Transaction>>(tax, HttpStatus.OK);}
      else
      {       return new ResponseEntity<String>(environment.getProperty("999"), HttpStatus.BAD_REQUEST);}
-    }
+   }
   
+
+  @GetMapping("/getTransactions")
+  public  ResponseEntity<?> callgetTransactions() throws HandleException
+  {  log.info("in transaction controller gettransactionreport ");
+    List<Transaction> tax = transactonServiceImpl.getTransactionReport();
+     if(tax!=null)
+       {return new ResponseEntity<List<Transaction>>(tax, HttpStatus.OK);}
+     else
+     {       return new ResponseEntity<String>(environment.getProperty("999"), HttpStatus.BAD_REQUEST);}
+   }
+
+
+
 }
+
+
+
+

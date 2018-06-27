@@ -30,6 +30,6 @@ public interface TransactionService {
    * @return
    * @throws HandleException
    */
-  public Transaction getTransaction(Long transactionId) throws HandleException;
+  public List<Transaction> getTransactionReport() throws HandleException;
 
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.sbank.dao.BankRepository;
 import com.sbank.dao.CustomerRepository;
@@ -32,7 +33,7 @@ import com.sbank.wrappers.WrapperUpdateCustomer;
  * @author trainee
  *
  */
-@Controller
+@RestController
 public class CustomerController {
 
   @Autowired

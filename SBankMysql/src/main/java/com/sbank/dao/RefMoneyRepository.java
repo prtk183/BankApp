@@ -11,4 +11,6 @@ import com.sbank.model.RefMoney;
  */
 public interface RefMoneyRepository extends JpaRepository<RefMoney, Integer>{
 
+  RefMoney findByCurrency(Integer currency);
+
 }

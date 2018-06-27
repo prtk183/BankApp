@@ -28,20 +28,20 @@
 	 </ul>
 </div>
 <div id="mydisplay">
-<form>
+<form action="http://localhost:8080/addnewcurrency" method="POST" >
 	<table>
 		<tr>
 		<td>Add Curency</td>
 		<td><input type="text" name="currency"></td> 
-		<td><input type="submit" name="Add Currency"></td></tr>
+		<td><input type="submit" value="Add Currency"></td></tr>
 	</table>
 </form>
-<form>
+<form action="http://localhost:8080/removecurrncy" method="POST" >
 	<table>
 		<tr>
 		<td>Remove Curency</td>
 		<td><input type="text" name="currency"></td> 
-		<td><input type="submit" name="Remove Currency"></td></tr>
+		<td><input type="submit" value="Remove Currency"></td></tr>
 	</table>
 </form>
 	<div class="container" ng-app="app" ng-controller="landCurrency">

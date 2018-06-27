@@ -27,5 +27,14 @@ public interface RefMoneyService {
    * @throws HandleException
    */
   public List<Integer> getReferenceTable() throws HandleException;
+  
+
+  /**
+   * @param curerncy
+   * @return
+   * @throws HandleException
+   */
+  public List<RefMoney> removeCurrency(Integer curerncy) throws HandleException;
+  
 
 }

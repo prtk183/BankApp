@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: #f35a5a;
 }
 
 h1 {
@@ -15,16 +15,16 @@ h1 {
 		
 			
 		}
-		#menu{
-		    height : 500px;
-			width : 200px;
+			#menu{
+		    height : 548px;
+			width : 198px;
 			line-height : 50px;
 			text-size:200%;
 			background-color: #eeeeee;
 			float:left;
 		}
 		#mydisplay{
-		    height : 500px;
+		    height : 548px;
 			width:500px;
 			line-height : 500px;
 			text-size:200%;

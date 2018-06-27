@@ -73,7 +73,7 @@ public class ATMServiceImpl implements ATMService {
    */
   @Override
   public ATM createATM(final WrapperATMCreate object) throws HandleException {
-    
+    System.out.println("******service impl****"+object);
     if( object.getAmount()!=null && object.getBankId()!=null)
     {
         log.info("in atm service creating atm");

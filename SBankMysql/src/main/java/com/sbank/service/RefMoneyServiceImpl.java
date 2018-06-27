@@ -64,6 +64,16 @@ public class RefMoneyServiceImpl implements RefMoneyService{
     
     return refenctable;
   }
+
+  @Override
+  public List<RefMoney> removeCurrency(Integer currency) throws HandleException {
+    
+    RefMoney ref = refMoneyRepository.findByCurrency(currency);
+    refMoneyRepository.delete(ref);
+    
+    return refMoneyRepository.findAll();
+    
+  }
   
   
 

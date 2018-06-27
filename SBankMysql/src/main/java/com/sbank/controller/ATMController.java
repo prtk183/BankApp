@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.sbank.dao.ATMRepository;
 import com.sbank.dao.AccountRepository;
@@ -28,7 +29,7 @@ import com.sbank.wrappers.WrapperATMAddMoneyToATM;
 import com.sbank.wrappers.WrapperATMCreate;
 import com.sbank.wrappers.WrapperATMWithdraw;
 
-@Controller
+@RestController
 public class ATMController {
 
  
@@ -48,12 +49,15 @@ public class ATMController {
    * @throws HandleException
    */
   @PostMapping("/createatm")
-  public ResponseEntity<?> callcreateATM(@QueryParam("bankid") Long bankId, @QueryParam("amount") Integer amount) throws HandleException
+  public ResponseEntity<?> callcreateATM(@QueryParam("bankId") Integer bankId, @QueryParam("amount") Integer amount) throws HandleException
   {
     ATM atm = new ATM();
     log.info("in controller creating atm");
- 
-    WrapperATMCreate object = new WrapperATMCreate(new BigDecimal(amount), bankId );
+    System.out.println(bankId);
+ Long longvar = Integer.toUnsignedLong(bankId);
+ System.out.println(longvar);
+    WrapperATMCreate object = new WrapperATMCreate(new BigDecimal(amount), longvar );
+    System.out.println("******controller****"+object);
     atm = ATMServiceImpl.createATM(object);
     if(atm!=null)
     {return new ResponseEntity<ATM>(atm,HttpStatus.OK);}

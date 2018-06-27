@@ -3,6 +3,8 @@ package com.sbank.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.QueryParam;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -13,13 +15,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.sbank.exception.HandleException;
 import com.sbank.model.Bank;
 import com.sbank.model.RefMoney;
 import com.sbank.service.RefMoneyServiceImpl;
 
-@Controller
+@RestController
 public class RefMoneyController {
   
   /**----------------refmoney service object--------.*/
@@ -59,9 +62,11 @@ public class RefMoneyController {
    * @throws HandleException
    */
   @PostMapping("/addnewcurrency")
-  public ResponseEntity<?> updatecurrerncy(@RequestBody RefMoney object) throws HandleException
+  public ResponseEntity<?> calladdcurrerncy(@QueryParam("currency") Integer currency ) throws HandleException
   {
     log.info("calling upadtecurrency ");
+    
+    RefMoney object = new RefMoney(currency);
     List<RefMoney> refTable = new ArrayList<RefMoney>(); 
 
     refTable = refimpl.update(object);
@@ -74,5 +79,20 @@ public class RefMoneyController {
     
   }
   
+  @PostMapping("/removecurrncy")
+  public ResponseEntity<?> callremovecurrerncy(@QueryParam("currency") Integer currency ) throws HandleException
+  {
+    log.info("calling upadtecurrency ");
+    List<RefMoney> refTable = new ArrayList<RefMoney>(); 
+
+    refTable = refimpl.removeCurrency(currency);
+    
+    if(refTable!=null)
+    {return new ResponseEntity<List<RefMoney>>(refTable, HttpStatus.OK);}
+    else
+    {return new ResponseEntity<String>(environment.getProperty("999"), HttpStatus.BAD_REQUEST);}
+    
+    
+  }
   
 }

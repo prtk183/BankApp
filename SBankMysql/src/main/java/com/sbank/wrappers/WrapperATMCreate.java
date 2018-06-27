@@ -31,6 +31,10 @@ public class WrapperATMCreate {
   public void setBankId(Long bankId) {
     this.bankId = bankId;
   }
+  @Override
+  public String toString() {
+    return "WrapperATMCreate [amount=" + amount + ", bankId=" + bankId + "]";
+  }
 
   
 }

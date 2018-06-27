@@ -123,20 +123,14 @@ public class TransactionServiceImpl implements TransactionService{
  }
   }
 
-  @Override
-  public Transaction getTransaction(final Long transactionId) throws HandleException {
-    log.info("in trnsaction service getTransaction");
-    if(transactionId!=null)
-    {
-    Transaction Tax = transactionRepository.findBytransactionId(transactionId).get();
-    return Tax;
-    
-    }
-    else
-    {
-      throw new HandleException(environment.getProperty("7777"));
 
-    }
+
+  @Override
+  public List<Transaction> getTransactionReport() throws HandleException {
+    
+    List<Transaction> result = transactionRepository.findAll();
+    
+    return result;
   }
 
 

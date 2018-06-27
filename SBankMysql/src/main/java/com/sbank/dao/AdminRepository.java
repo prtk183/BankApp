@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.sbank.model.Admin;
 
-public interface AdminRepository extends JpaRepository<Admin, Long>{
+import com.sbank.model.MyAdmin;
+
+public interface AdminRepository extends JpaRepository<MyAdmin, Long>{
 
 }

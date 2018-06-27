@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sbank.dao.AdminRepository;
-import com.sbank.model.Admin;
+
+import com.sbank.model.MyAdmin;
 
 @Service
 public class AdminServiceImpl implements IAdminService{
@@ -16,17 +17,17 @@ public class AdminServiceImpl implements IAdminService{
   
   
   @Override
-  public List<Admin> getAdmins()
+  public List<MyAdmin> getAdmins()
   {
     return adminRepository.findAll();
   }
   
   @Override
-  public String addAdmin(Admin object) {
+  public String addAdmin(MyAdmin object) {
 
     Object result=null;
     
-    if(object.getId()!=null && object.getPassword()!=null)
+    if(object.getAdminId()!=null && object.getPassword()!=null)
     {
       result = adminRepository.save(object);
       
