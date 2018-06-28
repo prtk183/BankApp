@@ -14,13 +14,16 @@
 <script>
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-    $http.get("customers.php")
-    .then(function (response) {$scope.names = response.data.records;});
+    $http.get("WEB/AdminLandingPage.html")
+    .then(function (response) {$scope.Sayhi = response.data.hi;});
 });
 </script>
 <body>
 <div id ="head">
-				Welcome Admin
+				<div id="left" style=" float:left;">
+				<a style="text-decoration: none;color: wheat;font-size:  18px;font-style:  inherit;" href="http://localhost:8080/WEB/AdminLandingPage.html"> Home </a>
+				</div>
+				<div id="center">Welcome Admin</div>
 </div>
 <div id ="menu">
 	 <ul>
@@ -36,7 +39,16 @@ app.controller('customersCtrl', function($scope, $http) {
 </div>
 <div id="mydisplay">
 	<div ng-app="myApp" ng-controller="customersCtrl">
-		<p>dashboard</p>
+		<p id="Sayhi">dashboard</p>
+		<table>
+		<tr>
+		<td>
+		<input type="text" name="hi" id="hi">
+		<input type="submit" name="submit" value="submit" on-click=>
+		</td>
+		</tr>
+		
+		</table>
 	</div>
 </div>
 <div id ="footer">

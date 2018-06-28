@@ -12,4 +12,6 @@ public interface IAdminService {
   public String removeAdmin(Long id);
   
   public List<MyAdmin> getAdmins();
+
+  public String verifyAdmin(Long id, String password);
 }

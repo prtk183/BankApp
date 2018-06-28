@@ -7,6 +7,10 @@ h1 {
     margin-left: 20px;
 }
 
+.tr {
+	
+	margin-bottom:10px;
+}
 #head{
 		    color:white;
 			background-color:black;
@@ -15,22 +19,26 @@ h1 {
 		
 			
 		}
-		#menu{
-		    height : 500px;
-			width : 200px;
+		
+#menu{
+		    height : 548px;
+			width : 198px;
 			line-height : 50px;
 			text-size:200%;
 			background-color: #eeeeee;
 			float:left;
 		}
-		#mydisplay{
-		    height : 500px;
+
+
+#mydisplay{
+		    height : 548px;
 			width:500px;
 			line-height : 500px;
 			text-size:200%;
 			float:left;
 		}
-		#footer{
+		
+#footer{
 			color:white;
 			background-color:black;
 			text-align:center;
