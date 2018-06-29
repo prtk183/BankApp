@@ -5,3 +5,6 @@
 5. render new html page using script
 6. render with data
 7. enable or dispble links wtr to response(ROLE)
+
+well, i need to look out for passing arguments in ng-controller, then render new pages with result objects getting from db..
+then use OAuth and spring sec..
